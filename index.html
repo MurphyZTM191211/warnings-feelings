@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Detailed Expandable Warning Feelings Poster - Fast & Small Particles</title>
+    <title>Interactive Detailed Expandable Warning Feelings Poster - Space Theme</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -13,18 +13,46 @@
         }
 
         body {
-            background-color: #050811;
+            /* Deep space base color */
+            background-color: #020617;
+            
+            /* Layering radial gradients to create ambient glowing pools of teal/emerald */
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 1) 0%, rgba(2, 6, 23, 1) 100%);
+            
+            color: #ffffff;
+            min-height: 100vh;
+            width: 100vw;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            width: 100vw;
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow: hidden;
-            font-family: 'Plus Jakarta Sans', sans-serif;
             position: relative;
         }
 
-        /* --- Immersive Background Design --- */
+        /* Subtle star layer using pseudo-element */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            box-shadow: 
+                150vw 200vh 1px #fff, 
+                50vw 50vh 1px rgba(255,255,255,0.8),
+                120vw 80vh 2px rgba(255,255,255,0.5),
+                30vw 150vh 1px rgba(255,255,255,0.7),
+                80vw 20vh 2px #fff,
+                200vw 100vh 1px rgba(255,255,255,0.6);
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* --- Calming & Gentle Background --- */
         .bg-layer {
             position: absolute;
             top: 0;
@@ -36,7 +64,7 @@
             overflow: hidden;
         }
 
-        /* Canvas for smooth 60fps particle rendering */
+        /* Canvas for smooth 60fps soft floating bubbles, device wireframes, and wave animations */
         #particleCanvas {
             position: absolute;
             top: 0;
@@ -46,108 +74,96 @@
             z-index: 0;
         }
 
-        /* Futuristic Sci-Fi Grid Overlay with Perspective */
-        .bg-grid {
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background-image: 
-                linear-gradient(rgba(244, 114, 182, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
-            background-size: 40px 40px;
-            transform: perspective(500px) rotateX(60deg);
-            z-index: 1;
-        }
-
-        /* Floating Glowing Neon Orbs */
+        /* Soft Gentle Glowing Orbs */
         .ambient-orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(100px);
+            filter: blur(140px);
             opacity: 0.35;
             z-index: 1;
             pointer-events: none;
+            animation: gentle-float 8s ease-in-out infinite alternate;
         }
 
         .orb-1 {
-            top: 5%;
-            left: 10%;
-            width: 450px;
-            height: 450px;
-            background: radial-gradient(circle, #f472b6, #db2777);
+            top: -10%;
+            left: 5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #38bdf8, #0284c7);
         }
 
         .orb-2 {
-            bottom: 5%;
-            right: 10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, #6366f1, #4f46e5);
+            bottom: -10%;
+            right: 5%;
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, #10b981, #059669);
+            animation-delay: -4s;
         }
 
-        .orb-3 {
-            top: 45%;
-            left: 55%;
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, #38bdf8, #6366f1);
-            opacity: 0.2;
+        @keyframes gentle-float {
+            0% { transform: translateY(0) scale(0.95); opacity: 0.25; }
+            100% { transform: translateY(25px) scale(1.05); opacity: 0.4; }
         }
 
         /* Poster Wrapper with Multi-layered Border & Glassmorphism */
         .poster {
-            width: 62vw;
+            width: 65vw;
             height: 94vh;
-            max-width: 980px;
+            max-width: 1020px;
             max-height: 1280px;
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 27, 75, 0.85) 50%, rgba(49, 16, 66, 0.85) 100%);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
+            background: linear-gradient(135deg, rgba(12, 24, 42, 0.75) 0%, rgba(15, 32, 56, 0.75) 50%, rgba(10, 36, 48, 0.75) 100%);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
             color: #f8fafc;
-            padding: 3vh 3vw;
+            padding: 3vh 2.5vw;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 0 20px rgba(244, 114, 182, 0.05);
+            box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.25), inset 0 0 35px rgba(56, 189, 248, 0.12);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.35);
             border-radius: 28px;
             z-index: 2;
+            animation: poster-fade-in 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Corner Technical Accents */
+        @keyframes poster-fade-in {
+            0% { opacity: 0; transform: scale(0.96) translateY(15px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* Corner Peaceful Accents */
         .poster::before, .poster::after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            border-color: rgba(244, 114, 182, 0.5);
+            width: 22px;
+            height: 22px;
+            border-color: rgba(56, 189, 248, 0.6);
             border-style: solid;
             pointer-events: none;
             z-index: 2;
         }
         .poster::before {
-            top: 12px;
-            left: 12px;
+            top: 14px;
+            left: 14px;
             border-width: 2px 0 0 2px;
         }
         .poster::after {
-            bottom: 12px;
-            right: 12px;
+            bottom: 14px;
+            right: 14px;
             border-width: 0 2px 2px 0;
         }
 
-        /* Poster Internal Glow Highlights */
         .glow-circle-1 {
             position: absolute;
             top: -100px;
             left: -100px;
             width: 350px;
             height: 350px;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
             border-radius: 50%;
             z-index: 0;
             pointer-events: none;
@@ -159,7 +175,7 @@
             right: -100px;
             width: 380px;
             height: 380px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
             border-radius: 50%;
             z-index: 0;
             pointer-events: none;
@@ -173,52 +189,58 @@
         .header {
             text-align: center;
             padding-bottom: 0.5vh;
+            animation: slide-down 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+        }
+
+        @keyframes slide-down {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .badge {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(236, 72, 153, 0.12);
-            color: #f472b6;
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
             padding: 5px 14px;
             border-radius: 50px;
-            font-size: clamp(10px, 0.9vw, 12px);
+            font-size: clamp(10px, 0.85vw, 12px);
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2.5px;
-            margin-bottom: 10px;
-            border: 1px solid rgba(236, 72, 153, 0.35);
-            box-shadow: 0 0 15px rgba(236, 72, 153, 0.2);
+            margin-bottom: 8px;
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
         }
 
         .badge span {
             width: 6px;
             height: 6px;
-            background: #f472b6;
+            background: #38bdf8;
             border-radius: 50%;
-            box-shadow: 0 0 8px #f472b6;
-            animation: blink 1.5s infinite;
+            box-shadow: 0 0 8px #38bdf8;
+            animation: blink 2s infinite;
         }
 
         @keyframes blink {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+            50% { opacity: 0.4; }
         }
 
         .header h1 {
-            font-size: clamp(26px, 2.8vw, 38px);
+            font-size: clamp(26px, 2.8vw, 36px);
             font-weight: 800;
             letter-spacing: -1px;
             margin-bottom: 4px;
             background: linear-gradient(135deg, #ffffff 30%, #cbd5e1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
         }
 
         .header p {
-            font-size: clamp(12px, 1.1vw, 15px);
+            font-size: clamp(12px, 1.05vw, 14px);
             color: #94a3b8;
             font-weight: 400;
         }
@@ -226,19 +248,25 @@
         .content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.4vh 1.4vw;
-            margin: 1vh 0;
+            gap: 1.8vh 1.8vw;
+            margin: 1.5vh 0;
             flex-grow: 1;
             align-content: center;
+            animation: fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+        }
+
+        @keyframes fade-in {
+            0% { opacity: 0; transform: scale(0.98); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.035);
+            background: rgba(255, 255, 255, 0.04);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 18px;
-            padding: 1.8vh 1.6vw;
+            padding: 2.2vh 2vw;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             display: flex;
@@ -246,7 +274,7 @@
             justify-content: flex-start;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.5);
         }
 
         .card::before {
@@ -256,16 +284,16 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(244, 114, 182, 0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.6), transparent);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-4px) scale(1.01);
-            background: rgba(255, 255, 255, 0.065);
-            border-color: rgba(244, 114, 182, 0.45);
-            box-shadow: 0 20px 40px -12px rgba(236, 72, 153, 0.35);
+            transform: translateY(-4px) scale(1.015);
+            background: rgba(255, 255, 255, 0.075);
+            border-color: rgba(56, 189, 248, 0.5);
+            box-shadow: 0 22px 45px -12px rgba(56, 189, 248, 0.3);
         }
 
         .card:hover::before {
@@ -273,36 +301,36 @@
         }
 
         .card h3 {
-            font-size: clamp(14px, 1.2vw, 17px);
+            font-size: clamp(14px, 1.25vw, 17px);
             font-weight: 700;
-            color: #f472b6;
+            color: #38bdf8;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 8px;
+            gap: 10px;
             width: 100%;
-            margin-bottom: 0.8vh;
+            margin-bottom: 1vh;
         }
 
         .card h3::after {
             content: '+';
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
-            color: #f472b6;
-            background: rgba(236, 72, 153, 0.1);
-            width: 26px;
-            height: 26px;
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.12);
+            width: 24px;
+            height: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            border: 1px solid rgba(236, 72, 153, 0.25);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .card.active h3::after {
             content: '-';
-            background: rgba(236, 72, 153, 0.25);
+            background: rgba(56, 189, 248, 0.3);
             transform: rotate(180deg);
         }
 
@@ -312,8 +340,8 @@
 
         .card li {
             font-size: clamp(11px, 0.95vw, 13px);
-            line-height: 1.4;
-            margin-bottom: 0.5vh;
+            line-height: 1.5;
+            margin-bottom: 0.7vh;
             position: relative;
             padding-left: 14px;
             color: #cbd5e1;
@@ -323,54 +351,66 @@
             content: '';
             position: absolute;
             left: 0;
-            top: 6px;
+            top: 7px;
             width: 4px;
             height: 4px;
-            background: #6366f1;
+            background: #10b981;
             border-radius: 50%;
             transition: background 0.3s ease;
         }
 
         .card:hover li::before {
-            background: #f472b6;
+            background: #38bdf8;
         }
 
         .card-details {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease, margin-top 0.4s ease, opacity 0.3s ease;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
             margin-top: 0;
             opacity: 0;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .card.active .card-details {
-            max-height: 300px;
-            margin-top: 1vh;
-            padding-top: 1vh;
+            max-height: 220px;
+            margin-top: 1.2vh;
+            padding-top: 1.2vh;
             opacity: 1;
             overflow-y: auto;
         }
 
         .card-details p {
-            font-size: clamp(10px, 0.9vw, 12px);
+            font-size: clamp(11px, 0.95vw, 12px);
             color: #94a3b8;
             line-height: 1.45;
             font-style: italic;
+            animation: text-reveal 0.4s ease 0.1s both;
         }
 
-        /* --- Footer with Neon Running Lights --- */
+        @keyframes text-reveal {
+            0% { opacity: 0; transform: translateY(5px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Footer with Calm Running Lights --- */
         .footer {
             position: relative;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(236, 72, 153, 0.12) 100%);
-            padding: 1.5vh 2vw;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(56, 189, 248, 0.12) 100%);
+            padding: 1.8vh 2vw;
             border-radius: 18px;
             text-align: center;
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(15px);
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 15px 35px -5px rgba(99, 102, 241, 0.25);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            box-shadow: 0 15px 35px -5px rgba(56, 189, 248, 0.15);
             transition: all 0.4s ease;
+            animation: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+        }
+
+        @keyframes slide-up {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .footer::before,
@@ -386,18 +426,18 @@
         .footer::before {
             top: 0;
             left: -100%;
-            background: linear-gradient(90deg, transparent, #f472b6, #6366f1, #ffffff);
+            background: linear-gradient(90deg, transparent, #38bdf8, #10b981, #ffffff);
         }
 
         .footer::after {
             bottom: 0;
             right: -100%;
-            background: linear-gradient(90deg, #ffffff, #6366f1, #f472b6, transparent);
+            background: linear-gradient(90deg, #ffffff, #10b981, #38bdf8, transparent);
         }
 
         .footer:hover {
-            border-color: rgba(244, 114, 182, 0.45);
-            box-shadow: 0 20px 40px -5px rgba(236, 72, 153, 0.35);
+            border-color: rgba(56, 189, 248, 0.5);
+            box-shadow: 0 20px 40px -5px rgba(56, 189, 248, 0.3);
         }
 
         .footer:hover::before {
@@ -421,35 +461,33 @@
         }
 
         .footer h2 {
-            font-size: clamp(14px, 1.3vw, 18px);
+            font-size: clamp(15px, 1.35vw, 18px);
             font-weight: 700;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
             color: #ffffff;
             transition: text-shadow 0.3s ease;
         }
 
         .footer:hover h2 {
-            text-shadow: 0 0 12px rgba(244, 114, 182, 0.8);
+            text-shadow: 0 0 12px rgba(56, 189, 248, 0.7);
         }
 
         .footer p {
-            font-size: clamp(11px, 1vw, 13px);
-            color: #f472b6;
+            font-size: clamp(11px, 0.95vw, 13px);
+            color: #38bdf8;
             font-weight: 600;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
     </style>
 </head>
 <body>
 
-    <!-- Immersive Background Design Layers -->
+    <!-- Calming Animated Background Canvas with Floating Devices & Tech Icons -->
     <div class="bg-layer">
         <canvas id="particleCanvas"></canvas>
-        <div class="bg-grid"></div>
         <div class="ambient-orb orb-1"></div>
         <div class="ambient-orb orb-2"></div>
-        <div class="ambient-orb orb-3"></div>
     </div>
 
     <div class="poster">
@@ -459,7 +497,7 @@
         <div class="header">
             <div class="badge"><span></span>Emotional Awareness</div>
             <h1>Warning Feelings</h1>
-            <p>Click any box to expand (accordion mode). Fast & smaller background particles.</p>
+            <p>Click any box below to expand insights and explore mindful guidance.</p>
         </div>
 
         <div class="content" id="cardContainer">
@@ -527,7 +565,7 @@
     </div>
 
     <script>
-        // High-Performance 60fps Canvas Particle Animation (Smaller size & faster speed)
+        // High-Performance 60fps Canvas Animation: Floating Tech Wireframes (Phones, Tablets, Laptops) + Particles
         const canvas = document.getElementById('particleCanvas');
         const ctx = canvas.getContext('2d');
 
@@ -538,29 +576,111 @@
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
+        // Floating ambient particles
         const particles = [];
-        const particleCount = 55;
-
-        // Pre-distribute particles across the screen with smaller sizes and faster speeds
-        for (let i = 0; i < particleCount; i++) {
+        for (let i = 0; i < 40; i++) {
             particles.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                radius: Math.random() * 1.0 + 0.3,    // Smaller size (0.3px to 1.3px)
-                speedY: -(Math.random() * 1.2 + 0.8), // Faster upward speed
-                speedX: (Math.random() - 0.5) * 0.4,   // Slight horizontal drift
-                opacity: Math.random() * 0.6 + 0.2
+                radius: Math.random() * 1.5 + 0.5,
+                speedY: -(Math.random() * 0.5 + 0.2),
+                speedX: (Math.random() - 0.5) * 0.3,
+                opacity: Math.random() * 0.5 + 0.1
             });
         }
 
-        function animateParticles() {
+        // Floating Background Devices (Phones, Laptops, Tablets wireframes)
+        const devices = [];
+        const deviceTypes = ['phone', 'tablet', 'laptop'];
+
+        for (let i = 0; i < 10; i++) {
+            devices.push({
+                type: deviceTypes[Math.floor(Math.random() * deviceTypes.length)],
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                width: Math.random() * 30 + 40,
+                height: Math.random() * 40 + 60,
+                speedY: -(Math.random() * 0.3 + 0.1),
+                speedX: (Math.random() - 0.5) * 0.2,
+                rotation: Math.random() * Math.PI * 2,
+                rotSpeed: (Math.random() - 0.5) * 0.005,
+                opacity: Math.random() * 0.18 + 0.08
+            });
+        }
+
+        function drawDevice(dev) {
+            ctx.save();
+            ctx.translate(dev.x, dev.y);
+            ctx.rotate(dev.rotation);
+            ctx.strokeStyle = `rgba(56, 189, 248, ${dev.opacity})`;
+            ctx.fillStyle = `rgba(56, 189, 248, ${dev.opacity * 0.2})`;
+            ctx.lineWidth = 1.2;
+
+            if (dev.type === 'phone') {
+                // Smartphone wireframe
+                let w = 32, h = 60;
+                ctx.beginPath();
+                ctx.roundRect(-w/2, -h/2, w, h, 6);
+                ctx.fill();
+                ctx.stroke();
+                // Screen reflection / Home indicator
+                ctx.beginPath();
+                ctx.moveTo(-8, h/2 - 6);
+                ctx.lineTo(8, h/2 - 6);
+                ctx.stroke();
+            } else if (dev.type === 'tablet') {
+                // Tablet wireframe
+                let w = 55, h = 75;
+                ctx.beginPath();
+                ctx.roundRect(-w/2, -h/2, w, h, 8);
+                ctx.fill();
+                ctx.stroke();
+                // Camera dot
+                ctx.beginPath();
+                ctx.arc(0, -h/2 + 5, 2, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(56, 189, 248, ${dev.opacity})`;
+                ctx.fill();
+            } else {
+                // Laptop wireframe
+                let w = 70, h = 45;
+                ctx.beginPath();
+                ctx.roundRect(-w/2, -h/2 + 5, w, h - 10, 4);
+                ctx.fill();
+                ctx.stroke();
+                // Laptop base
+                ctx.beginPath();
+                ctx.moveTo(-w/2 - 10, h/2 - 5);
+                ctx.lineTo(w/2 + 10, h/2 - 5);
+                ctx.stroke();
+            }
+
+            ctx.restore();
+        }
+
+        function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+            // 1. Update and draw background devices (phones/tablets/laptops)
+            devices.forEach(dev => {
+                dev.y += dev.speedY;
+                dev.x += dev.speedX;
+                dev.rotation += dev.rotSpeed;
+
+                if (dev.y < -60) {
+                    dev.y = canvas.height + 60;
+                    dev.x = Math.random() * canvas.width;
+                }
+                if (dev.x < -60) dev.x = canvas.width + 60;
+                if (dev.x > canvas.width + 60) dev.x = -60;
+
+                drawDevice(dev);
+            });
+
+            // 2. Update and draw floating particles
             particles.forEach(p => {
                 p.y += p.speedY;
                 p.x += p.speedX;
 
-                // Reset position smoothly when particle floats off screen
                 if (p.y < -10) {
                     p.y = canvas.height + 10;
                     p.x = Math.random() * canvas.width;
@@ -570,16 +690,16 @@
 
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
-                ctx.shadowBlur = 4;
-                ctx.shadowColor = 'rgba(244, 114, 182, 0.6)';
+                ctx.fillStyle = `rgba(56, 189, 248, ${p.opacity})`;
+                ctx.shadowBlur = 6;
+                ctx.shadowColor = 'rgba(56, 189, 248, 0.5)';
                 ctx.fill();
             });
 
-            requestAnimationFrame(animateParticles);
+            requestAnimationFrame(animate);
         }
 
-        requestAnimationFrame(animateParticles);
+        requestAnimationFrame(animate);
 
         // Accordion Card Toggle Logic
         function toggleCard(selectedCard) {
