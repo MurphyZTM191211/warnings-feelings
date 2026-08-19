@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Detailed Expandable Warning Feelings Poster - Space Theme</title>
+    <title>Digital Awareness & Online Safety Poster</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -13,15 +13,7 @@
         }
 
         body {
-            /* Deep space base color */
             background-color: #020617;
-            
-            /* Layering radial gradients to create ambient glowing pools of teal/emerald */
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 1) 0%, rgba(2, 6, 23, 1) 100%);
-            
             color: #ffffff;
             min-height: 100vh;
             width: 100vw;
@@ -33,26 +25,7 @@
             position: relative;
         }
 
-        /* Subtle star layer using pseudo-element */
-        body::before {
-            content: "";
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
-            box-shadow: 
-                150vw 200vh 1px #fff, 
-                50vw 50vh 1px rgba(255,255,255,0.8),
-                120vw 80vh 2px rgba(255,255,255,0.5),
-                30vw 150vh 1px rgba(255,255,255,0.7),
-                80vw 20vh 2px #fff,
-                200vw 100vh 1px rgba(255,255,255,0.6);
-            opacity: 0.6;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* --- Calming & Gentle Background --- */
+        /* --- Clean Particle Background Layer --- */
         .bg-layer {
             position: absolute;
             top: 0;
@@ -64,121 +37,41 @@
             overflow: hidden;
         }
 
-        /* Canvas for smooth 60fps soft floating bubbles, device wireframes, and wave animations */
         #particleCanvas {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
+            z-index: 2;
         }
 
-        /* Soft Gentle Glowing Orbs */
-        .ambient-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(140px);
-            opacity: 0.35;
-            z-index: 1;
-            pointer-events: none;
-            animation: gentle-float 8s ease-in-out infinite alternate;
-        }
-
-        .orb-1 {
-            top: -10%;
-            left: 5%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, #38bdf8, #0284c7);
-        }
-
-        .orb-2 {
-            bottom: -10%;
-            right: 5%;
-            width: 550px;
-            height: 550px;
-            background: radial-gradient(circle, #10b981, #059669);
-            animation-delay: -4s;
-        }
-
-        @keyframes gentle-float {
-            0% { transform: translateY(0) scale(0.95); opacity: 0.25; }
-            100% { transform: translateY(25px) scale(1.05); opacity: 0.4; }
-        }
-
-        /* Poster Wrapper with Multi-layered Border & Glassmorphism */
+        /* --- Poster Container --- */
         .poster {
-            width: 65vw;
-            height: 94vh;
-            max-width: 1020px;
-            max-height: 1280px;
-            background: linear-gradient(135deg, rgba(12, 24, 42, 0.75) 0%, rgba(15, 32, 56, 0.75) 50%, rgba(10, 36, 48, 0.75) 100%);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
+            width: 64vw;
+            height: 95vh;
+            max-width: 1000px;
+            max-height: 1300px;
+            background: rgba(12, 24, 42, 0.88);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
             color: #f8fafc;
-            padding: 3vh 2.5vw;
+            padding: 2.5vh 2.5vw;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.25), inset 0 0 35px rgba(56, 189, 248, 0.12);
+            box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.7);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(56, 189, 248, 0.35);
+            border: 1px solid rgba(56, 189, 248, 0.3);
             border-radius: 28px;
-            z-index: 2;
+            z-index: 3;
             animation: poster-fade-in 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         @keyframes poster-fade-in {
             0% { opacity: 0; transform: scale(0.96) translateY(15px); }
             100% { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
-        /* Corner Peaceful Accents */
-        .poster::before, .poster::after {
-            content: '';
-            position: absolute;
-            width: 22px;
-            height: 22px;
-            border-color: rgba(56, 189, 248, 0.6);
-            border-style: solid;
-            pointer-events: none;
-            z-index: 2;
-        }
-        .poster::before {
-            top: 14px;
-            left: 14px;
-            border-width: 2px 0 0 2px;
-        }
-        .poster::after {
-            bottom: 14px;
-            right: 14px;
-            border-width: 0 2px 2px 0;
-        }
-
-        .glow-circle-1 {
-            position: absolute;
-            top: -100px;
-            left: -100px;
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
-            border-radius: 50%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .glow-circle-2 {
-            position: absolute;
-            bottom: -100px;
-            right: -100px;
-            width: 380px;
-            height: 380px;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
-            border-radius: 50%;
-            z-index: 0;
-            pointer-events: none;
         }
 
         .header, .content, .footer {
@@ -189,29 +82,22 @@
         .header {
             text-align: center;
             padding-bottom: 0.5vh;
-            animation: slide-down 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
-        }
-
-        @keyframes slide-down {
-            0% { opacity: 0; transform: translateY(-20px); }
-            100% { opacity: 1; transform: translateY(0); }
         }
 
         .badge {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(56, 189, 248, 0.15);
+            background: rgba(56, 189, 248, 0.2);
             color: #38bdf8;
-            padding: 5px 14px;
+            padding: 4px 12px;
             border-radius: 50px;
             font-size: clamp(10px, 0.85vw, 12px);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2.5px;
-            margin-bottom: 8px;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
             border: 1px solid rgba(56, 189, 248, 0.4);
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
         }
 
         .badge span {
@@ -219,7 +105,6 @@
             height: 6px;
             background: #38bdf8;
             border-radius: 50%;
-            box-shadow: 0 0 8px #38bdf8;
             animation: blink 2s infinite;
         }
 
@@ -229,44 +114,36 @@
         }
 
         .header h1 {
-            font-size: clamp(26px, 2.8vw, 36px);
+            font-size: clamp(24px, 2.5vw, 36px);
             font-weight: 800;
             letter-spacing: -1px;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
             background: linear-gradient(135deg, #ffffff 30%, #cbd5e1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
         }
 
         .header p {
-            font-size: clamp(12px, 1.05vw, 14px);
-            color: #94a3b8;
-            font-weight: 400;
+            font-size: clamp(11px, 1vw, 14px);
+            color: #cbd5e1;
         }
 
         .content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.8vh 1.8vw;
-            margin: 1.5vh 0;
+            gap: 1.2vh 1.2vw;
+            margin: 0.8vh 0;
             flex-grow: 1;
             align-content: center;
-            animation: fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
-        }
-
-        @keyframes fade-in {
-            0% { opacity: 0; transform: scale(0.98); }
-            100% { opacity: 1; transform: scale(1); }
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 18px;
-            padding: 2.2vh 2vw;
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 1.4vh 1.4vw;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             display: flex;
@@ -274,52 +151,172 @@
             justify-content: flex-start;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.5);
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.6), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
         }
 
         .card:hover {
-            transform: translateY(-4px) scale(1.015);
-            background: rgba(255, 255, 255, 0.075);
-            border-color: rgba(56, 189, 248, 0.5);
-            box-shadow: 0 22px 45px -12px rgba(56, 189, 248, 0.3);
+            transform: translateY(-4px) scale(1.01);
+            background: rgba(30, 41, 59, 0.85);
+            border-color: rgba(56, 189, 248, 0.6);
+            box-shadow: 0 20px 40px -12px rgba(56, 189, 248, 0.3);
         }
 
-        .card:hover::before {
-            opacity: 1;
+        .card-illustration {
+            width: 100%;
+            height: 75px;
+            background: rgba(15, 23, 42, 0.4);
+            border-radius: 10px;
+            margin-bottom: 0.8vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .shield-icon {
+            width: 36px;
+            height: 42px;
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            clip-path: polygon(50% 0%, 100% 20%, 100% 60%, 50% 100%, 0% 60%, 0% 20%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: shield-pulse 2s ease-in-out infinite alternate;
+        }
+        .shield-icon::after {
+            content: '!';
+            color: white;
+            font-weight: 800;
+            font-size: 20px;
+        }
+        @keyframes shield-pulse {
+            0% { transform: scale(0.95); filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.4)); }
+            100% { transform: scale(1.08); filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.8)); }
+        }
+
+        .heart-container {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .pulse-ring {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(16, 185, 129, 0.8);
+            border-radius: 50%;
+            animation: radar-ping 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        }
+        @keyframes radar-ping {
+            0% { transform: scale(0.5); opacity: 1; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+        .waveform-bar {
+            width: 4px;
+            height: 20px;
+            background: #10b981;
+            margin: 0 2px;
+            border-radius: 2px;
+            animation: sound-wave 1.2s ease-in-out infinite alternate;
+        }
+        .waveform-bar:nth-child(2) { animation-delay: 0.2s; height: 32px; background: #38bdf8; }
+        .waveform-bar:nth-child(3) { animation-delay: 0.4s; height: 16px; }
+        @keyframes sound-wave {
+            0% { transform: scaleY(0.4); }
+            100% { transform: scaleY(1.2); }
+        }
+
+        .pause-circle {
+            width: 42px;
+            height: 42px;
+            border: 2px dashed #38bdf8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: spin-slow 10s linear infinite;
+        }
+        .pause-bars {
+            display: flex;
+            gap: 5px;
+        }
+        .pause-bar {
+            width: 5px;
+            height: 18px;
+            background: #38bdf8;
+            border-radius: 3px;
+        }
+        @keyframes spin-slow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .nodes-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .node {
+            width: 14px;
+            height: 14px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #10b981;
+            animation: node-glow 1.5s ease-in-out infinite alternate;
+        }
+        .node:nth-child(2) { background: #38bdf8; box-shadow: 0 0 10px #38bdf8; animation-delay: 0.75s; }
+        .node-line {
+            width: 35px;
+            height: 2px;
+            background: linear-gradient(90deg, #10b981, #38bdf8);
+            position: relative;
+            overflow: hidden;
+        }
+        .node-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: white;
+            animation: line-travel 2s linear infinite;
+        }
+        @keyframes node-glow {
+            0% { transform: scale(0.9); opacity: 0.7; }
+            100% { transform: scale(1.2); opacity: 1; }
+        }
+        @keyframes line-travel {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
 
         .card h3 {
-            font-size: clamp(14px, 1.25vw, 17px);
+            font-size: clamp(13px, 1.1vw, 16px);
             font-weight: 700;
             color: #38bdf8;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 10px;
+            gap: 8px;
             width: 100%;
-            margin-bottom: 1vh;
+            margin-bottom: 0.6vh;
         }
 
         .card h3::after {
             content: '+';
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             color: #38bdf8;
-            background: rgba(56, 189, 248, 0.12);
-            width: 24px;
-            height: 24px;
+            background: rgba(56, 189, 248, 0.15);
+            width: 22px;
+            height: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -339,28 +336,23 @@
         }
 
         .card li {
-            font-size: clamp(11px, 0.95vw, 13px);
-            line-height: 1.5;
-            margin-bottom: 0.7vh;
+            font-size: clamp(10.5px, 0.9vw, 12.5px);
+            line-height: 1.35;
+            margin-bottom: 0.4vh;
             position: relative;
-            padding-left: 14px;
-            color: #cbd5e1;
+            padding-left: 12px;
+            color: #f1f5f9;
         }
 
         .card li::before {
             content: '';
             position: absolute;
             left: 0;
-            top: 7px;
-            width: 4px;
-            height: 4px;
+            top: 5px;
+            width: 3.5px;
+            height: 3.5px;
             background: #10b981;
             border-radius: 50%;
-            transition: background 0.3s ease;
-        }
-
-        .card:hover li::before {
-            background: #38bdf8;
         }
 
         .card-details {
@@ -369,32 +361,26 @@
             transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
             margin-top: 0;
             opacity: 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
         }
 
         .card.active .card-details {
-            max-height: 220px;
-            margin-top: 1.2vh;
-            padding-top: 1.2vh;
+            max-height: 250px;
+            margin-top: 0.8vh;
+            padding-top: 0.8vh;
             opacity: 1;
             overflow-y: auto;
         }
 
         .card-details p {
-            font-size: clamp(11px, 0.95vw, 12px);
-            color: #94a3b8;
-            line-height: 1.45;
+            font-size: clamp(10px, 0.85vw, 11.5px);
+            color: #cbd5e1;
+            line-height: 1.4;
             font-style: italic;
-            animation: text-reveal 0.4s ease 0.1s both;
         }
 
-        @keyframes text-reveal {
-            0% { opacity: 0; transform: translateY(5px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- Footer with Calm Running Lights --- */
-        .footer {
+        /* --- Hover-Activated Duo Neon Running Light Footer --- */
+         .footer {
             position: relative;
             background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(56, 189, 248, 0.12) 100%);
             padding: 1.8vh 2vw;
@@ -483,89 +469,109 @@
 </head>
 <body>
 
-    <!-- Calming Animated Background Canvas with Floating Devices & Tech Icons -->
+    <!-- Clean Particle Background Layer -->
     <div class="bg-layer">
         <canvas id="particleCanvas"></canvas>
-        <div class="ambient-orb orb-1"></div>
-        <div class="ambient-orb orb-2"></div>
     </div>
 
     <div class="poster">
-        <div class="glow-circle-1"></div>
-        <div class="glow-circle-2"></div>
-
         <div class="header">
-            <div class="badge"><span></span>Emotional Awareness</div>
-            <h1>Warning Feelings</h1>
-            <p>Click any box below to expand insights and explore mindful guidance.</p>
+            <div class="badge"><span></span>Digital Awareness</div>
+            <h1>Online Safety & Warnings</h1>
+            <p>Click any box to explore animated insights on digital wellness and safety.</p>
         </div>
 
         <div class="content" id="cardContainer">
-            <!-- Physical Signals Card -->
+            <!-- Online Red Flags Card -->
             <div class="card" onclick="toggleCard(this)">
-                <h3>Physical Signals</h3>
+                <div class="card-illustration">
+                    <div class="shield-icon"></div>
+                </div>
+                <h3>Online Red Flags</h3>
                 <ul>
-                    <li>Tightness in the chest or stomach</li>
-                    <li>Racing heart or shallow breathing</li>
-                    <li>Clenched jaw or constant fatigue</li>
-                    <li>Sudden waves of physical restlessness</li>
+                    <li>Requests for personal information or passwords</li>
+                    <li>Sudden pressure to keep online chats secret</li>
+                    <li>Fake profiles or suspicious direct messages</li>
+                    <li>Hostile comments or targeted online bullying</li>
                 </ul>
                 <div class="card-details">
-                    <p><strong>Deep Insight:</strong> Your body somaticizes stress before your conscious mind catches up. Tightness and shallow breathing stem from the fight-or-flight response constricting core muscles, while jaw-clenching and fatigue reflect chronic energy drain.</p>
+                    <p><strong>Deep Insight:</strong> Trust your instincts. If something online feels off or manipulative, it is a warning sign to pause and disengage.</p>
                 </div>
             </div>
 
-            <!-- Emotional Signals Card -->
+            <!-- Emotional Feelings Card -->
             <div class="card" onclick="toggleCard(this)">
+                <div class="card-illustration">
+                    <div class="heart-container">
+                        <div class="pulse-ring"></div>
+                        <div class="waveform-bar"></div>
+                        <div class="waveform-bar"></div>
+                        <div class="waveform-bar"></div>
+                    </div>
+                </div>
                 <h3>Emotional Signals</h3>
                 <ul>
-                    <li>Overwhelming frustration or anger</li>
-                    <li>Sudden feelings of burnout or dread</li>
-                    <li>Heightened anxiety over small tasks</li>
-                    <li>Emotional numbness or withdrawal</li>
+                    <li>Sudden anxiety or dread when checking notifications</li>
+                    <li>Feeling drained or overwhelmed by online drama</li>
+                    <li>Comparing yourself constantly to online feeds</li>
+                    <li>The urge to isolate or withdraw after scrolling</li>
                 </ul>
                 <div class="card-details">
-                    <p><strong>Deep Insight:</strong> Emotions serve as internal gauges. Intense frustration often points toward crossed boundaries or stretched limits, whereas numbness acts as a defense mechanism when psychological stress hits maximum capacity.</p>
+                    <p><strong>Deep Insight:</strong> Emotional exhaustion from screens is a clear warning that it's time to log off and step back into reality.</p>
                 </div>
             </div>
 
             <!-- What To Do Card -->
             <div class="card" onclick="toggleCard(this)">
+                <div class="card-illustration">
+                    <div class="pause-circle">
+                        <div class="pause-bars">
+                            <div class="pause-bar"></div>
+                            <div class="pause-bar"></div>
+                        </div>
+                    </div>
+                </div>
                 <h3>What To Do</h3>
                 <ul>
-                    <li>Pause and take slow, deep breaths</li>
-                    <li>Step away from stressful environments</li>
-                    <li>Name what you're feeling out loud</li>
-                    <li>Acknowledge emotions without judgment</li>
+                    <li>Block, mute, or restrict harmful accounts</li>
+                    <li>Take regular breaks away from screens</li>
+                    <li>Remember online drama does not define you</li>
+                    <li>Protect your peace by setting digital boundaries</li>
                 </ul>
                 <div class="card-details">
-                    <p><strong>Deep Insight:</strong> Immediate grounding techniques interrupt stress loops. Diaphragmatic breathing switches on the parasympathetic nervous system, while labeling feelings turns abstract internal distress into concrete data.</p>
+                    <p><strong>Deep Insight:</strong> You control your digital space. Using blocking tools and stepping away interrupts negativity loops.</p>
                 </div>
             </div>
 
             <!-- Support Matters Card -->
             <div class="card" onclick="toggleCard(this)">
+                <div class="card-illustration">
+                    <div class="nodes-container">
+                        <div class="node"></div>
+                        <div class="node-line"></div>
+                        <div class="node"></div>
+                    </div>
+                </div>
                 <h3>Support Matters</h3>
                 <ul>
-                    <li>Talk to a trusted friend or mentor</li>
-                    <li>Reach out to a counselor or professional</li>
-                    <li>Journal your thoughts to process them</li>
-                    <li>Remember: Asking for help is strength</li>
+                    <li>Talk to a trusted friend, parent, or mentor</li>
+                    <li>Report abusive content or cyberbullying safely</li>
+                    <li>Remind yourself you never deal with it alone</li>
+                    <li>Reaching out for help is a sign of true strength</li>
                 </ul>
                 <div class="card-details">
-                    <p><strong>Deep Insight:</strong> Emotional burdens multiply when kept isolated. Sharing thoughts with safe peers or professionals builds resilience, clears mental clutter through writing, and reframes asking for help as a courageous act.</p>
+                    <p><strong>Deep Insight:</strong> Sharing difficult online experiences with a safe adult lifts the weight and ensures proper support.</p>
                 </div>
             </div>
         </div>
 
         <div class="footer">
-            <h2>Your mental health matters.</h2>
-            <p>Pause &bull; Reflect &bull; Reach Out</p>
+            <h2>Your digital wellbeing matters.</h2>
+            <p>Protect Your Peace &bull; Set Boundaries &bull; Stay Safe</p>
         </div>
     </div>
 
     <script>
-        // High-Performance 60fps Canvas Animation: Floating Tech Wireframes (Phones, Tablets, Laptops) + Particles
         const canvas = document.getElementById('particleCanvas');
         const ctx = canvas.getContext('2d');
 
@@ -576,110 +582,43 @@
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
-        // Floating ambient particles
         const particles = [];
-        for (let i = 0; i < 40; i++) {
+        const particleCount = 40;
+
+        for (let i = 0; i < particleCount; i++) {
             particles.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                radius: Math.random() * 1.5 + 0.5,
-                speedY: -(Math.random() * 0.5 + 0.2),
+                radius: Math.random() * 1.2 + 0.4,
+                speedY: -(Math.random() * 0.6 + 0.2),
                 speedX: (Math.random() - 0.5) * 0.3,
-                opacity: Math.random() * 0.5 + 0.1
+                opacity: Math.random() * 0.4 + 0.1
             });
         }
 
-        // Floating Background Devices (Phones, Laptops, Tablets wireframes)
-        const devices = [];
-        const deviceTypes = ['phone', 'tablet', 'laptop'];
-
-        for (let i = 0; i < 10; i++) {
-            devices.push({
-                type: deviceTypes[Math.floor(Math.random() * deviceTypes.length)],
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                width: Math.random() * 30 + 40,
-                height: Math.random() * 40 + 60,
-                speedY: -(Math.random() * 0.3 + 0.1),
-                speedX: (Math.random() - 0.5) * 0.2,
-                rotation: Math.random() * Math.PI * 2,
-                rotSpeed: (Math.random() - 0.5) * 0.005,
-                opacity: Math.random() * 0.18 + 0.08
-            });
-        }
-
-        function drawDevice(dev) {
-            ctx.save();
-            ctx.translate(dev.x, dev.y);
-            ctx.rotate(dev.rotation);
-            ctx.strokeStyle = `rgba(56, 189, 248, ${dev.opacity})`;
-            ctx.fillStyle = `rgba(56, 189, 248, ${dev.opacity * 0.2})`;
-            ctx.lineWidth = 1.2;
-
-            if (dev.type === 'phone') {
-                // Smartphone wireframe
-                let w = 32, h = 60;
-                ctx.beginPath();
-                ctx.roundRect(-w/2, -h/2, w, h, 6);
-                ctx.fill();
-                ctx.stroke();
-                // Screen reflection / Home indicator
-                ctx.beginPath();
-                ctx.moveTo(-8, h/2 - 6);
-                ctx.lineTo(8, h/2 - 6);
-                ctx.stroke();
-            } else if (dev.type === 'tablet') {
-                // Tablet wireframe
-                let w = 55, h = 75;
-                ctx.beginPath();
-                ctx.roundRect(-w/2, -h/2, w, h, 8);
-                ctx.fill();
-                ctx.stroke();
-                // Camera dot
-                ctx.beginPath();
-                ctx.arc(0, -h/2 + 5, 2, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(56, 189, 248, ${dev.opacity})`;
-                ctx.fill();
-            } else {
-                // Laptop wireframe
-                let w = 70, h = 45;
-                ctx.beginPath();
-                ctx.roundRect(-w/2, -h/2 + 5, w, h - 10, 4);
-                ctx.fill();
-                ctx.stroke();
-                // Laptop base
-                ctx.beginPath();
-                ctx.moveTo(-w/2 - 10, h/2 - 5);
-                ctx.lineTo(w/2 + 10, h/2 - 5);
-                ctx.stroke();
-            }
-
-            ctx.restore();
-        }
+        let waveAngle = 0;
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // 1. Update and draw background devices (phones/tablets/laptops)
-            devices.forEach(dev => {
-                dev.y += dev.speedY;
-                dev.x += dev.speedX;
-                dev.rotation += dev.rotSpeed;
+            waveAngle += 0.015;
+            ctx.save();
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height * 0.75);
+            for (let x = 0; x < canvas.width; x += 35) {
+                let y = canvas.height * 0.75 + Math.sin(x * 0.003 + waveAngle) * 25 + Math.cos(x * 0.005 - waveAngle * 0.5) * 10;
+                ctx.lineTo(x, y);
+            }
+            ctx.lineTo(canvas.width, canvas.height);
+            ctx.lineTo(0, canvas.height);
+            ctx.closePath();
+            ctx.fillStyle = 'rgba(56, 189, 248, 0.015)';
+            ctx.fill();
+            ctx.restore();
 
-                if (dev.y < -60) {
-                    dev.y = canvas.height + 60;
-                    dev.x = Math.random() * canvas.width;
-                }
-                if (dev.x < -60) dev.x = canvas.width + 60;
-                if (dev.x > canvas.width + 60) dev.x = -60;
-
-                drawDevice(dev);
-            });
-
-            // 2. Update and draw floating particles
             particles.forEach(p => {
                 p.y += p.speedY;
-                p.x += p.speedX;
+                p.x += p.speedX + Math.sin(waveAngle + p.y * 0.01) * 0.2;
 
                 if (p.y < -10) {
                     p.y = canvas.height + 10;
@@ -691,8 +630,8 @@
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
                 ctx.fillStyle = `rgba(56, 189, 248, ${p.opacity})`;
-                ctx.shadowBlur = 6;
-                ctx.shadowColor = 'rgba(56, 189, 248, 0.5)';
+                ctx.shadowBlur = 4;
+                ctx.shadowColor = 'rgba(56, 189, 248, 0.3)';
                 ctx.fill();
             });
 
@@ -701,22 +640,18 @@
 
         requestAnimationFrame(animate);
 
-        // Accordion Card Toggle Logic
         function toggleCard(selectedCard) {
             const cards = document.querySelectorAll('.card');
             const isActive = selectedCard.classList.contains('active');
 
-            // Close all cards first
             cards.forEach(card => {
                 card.classList.remove('active');
             });
 
-            // If the clicked card wasn't active, open it
             if (!isActive) {
                 selectedCard.classList.add('active');
             }
         }
     </script>
-
 </body>
 </html>
