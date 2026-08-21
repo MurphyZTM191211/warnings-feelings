@@ -16,18 +16,18 @@
             background-color: #020617;
             color: #ffffff;
             min-height: 100vh;
-            width: 100vw;
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden;
             position: relative;
+            padding: 20px 0;
         }
 
         /* --- Clean Particle Background Layer --- */
         .bg-layer {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -48,21 +48,18 @@
 
         /* --- Poster Container --- */
         .poster {
-            width: 64vw;
-            height: 95vh;
+            width: 90%;
             max-width: 1000px;
-            max-height: 1300px;
             background: rgba(12, 24, 42, 0.88);
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
             color: #f8fafc;
-            padding: 2.5vh 2.5vw;
+            padding: 30px 25px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            gap: 25px;
             box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.7);
             position: relative;
-            overflow: hidden;
             border: 1px solid rgba(56, 189, 248, 0.3);
             border-radius: 28px;
             z-index: 3;
@@ -81,7 +78,6 @@
 
         .header {
             text-align: center;
-            padding-bottom: 0.5vh;
             animation: header-slide-down 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
         }
 
@@ -102,7 +98,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             border: 1px solid rgba(56, 189, 248, 0.4);
             animation: badge-pulse-glow 3s ease-in-out infinite;
         }
@@ -126,10 +122,10 @@
         }
 
         .header h1 {
-            font-size: clamp(24px, 2.5vw, 36px);
+            font-size: clamp(24px, 3vw, 36px);
             font-weight: 800;
             letter-spacing: -1px;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
             background: linear-gradient(135deg, #ffffff 30%, #cbd5e1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -142,11 +138,14 @@
 
         .content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.2vh 1.2vw;
-            margin: 0.8vh 0;
-            flex-grow: 1;
-            align-content: center;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* --- Staggered Card Entrance Animations --- */
@@ -156,7 +155,7 @@
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 16px;
-            padding: 1.4vh 1.4vw;
+            padding: 20px;
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
             cursor: pointer;
             display: flex;
@@ -187,7 +186,7 @@
         }
 
         .card:hover {
-            transform: translateY(-12px) scale(1.02);
+            transform: translateY(-8px) scale(1.01);
             background: rgba(30, 41, 59, 0.85);
             border-color: rgba(56, 189, 248, 0.6);
             box-shadow: 0 25px 50px -12px rgba(56, 189, 248, 0.4);
@@ -198,7 +197,7 @@
             height: 75px;
             background: rgba(15, 23, 42, 0.4);
             border-radius: 10px;
-            margin-bottom: 0.8vh;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -350,7 +349,7 @@
         }
 
         .card h3 {
-            font-size: clamp(13px, 1.1vw, 16px);
+            font-size: clamp(14px, 1.2vw, 16px);
             font-weight: 700;
             color: #38bdf8;
             display: flex;
@@ -358,7 +357,7 @@
             justify-content: space-between;
             gap: 8px;
             width: 100%;
-            margin-bottom: 0.6vh;
+            margin-bottom: 10px;
         }
 
         .card h3::after {
@@ -388,29 +387,21 @@
         }
 
         .card li {
-            font-size: clamp(10.5px, 0.9vw, 12.5px);
-            line-height: 1.35;
-            margin-bottom: 0.4vh;
+            font-size: clamp(11px, 0.95vw, 13px);
+            line-height: 1.4;
+            margin-bottom: 8px;
             position: relative;
-            padding-left: 12px;
+            padding-left: 14px;
             color: #f1f5f9;
-            transition: transform 0.2s ease, color 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-4px) scale(1.01);
-            background: rgba(30, 41, 59, 0.85);
-            border-color: rgba(56, 189, 248, 0.6);
-            box-shadow: 0 20px 40px -12px rgba(56, 189, 248, 0.3);
         }
 
         .card li::before {
             content: '';
             position: absolute;
             left: 0;
-            top: 5px;
-            width: 3.5px;
-            height: 3.5px;
+            top: 7px;
+            width: 4px;
+            height: 4px;
             background: #10b981;
             border-radius: 50%;
         }
@@ -426,14 +417,13 @@
 
         .card.active .card-details {
             max-height: 250px;
-            margin-top: 0.8vh;
-            padding-top: 0.8vh;
+            margin-top: 12px;
+            padding-top: 12px;
             opacity: 1;
-            overflow-y: auto;
         }
 
         .card-details p {
-            font-size: clamp(10px, 0.85vw, 11.5px);
+            font-size: clamp(11px, 0.9vw, 12px);
             color: #cbd5e1;
             line-height: 1.4;
             font-style: italic;
@@ -449,7 +439,7 @@
         .footer {
             position: relative;
             background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(56, 189, 248, 0.12) 100%);
-            padding: 1.8vh 2vw;
+            padding: 20px;
             border-radius: 18px;
             text-align: center;
             backdrop-filter: blur(15px);
@@ -782,7 +772,6 @@
                 ctx.fillStyle = `rgba(15, 23, 42, ${t.opacity * 0.5})`;
 
                 if (t.type === 'lock') {
-                    // Draw a simple lock shape
                     ctx.beginPath();
                     ctx.arc(0, -t.size * 0.2, t.size * 0.35, Math.PI, 0, false);
                     ctx.stroke();
@@ -791,7 +780,6 @@
                     ctx.fill();
                     ctx.stroke();
                 } else {
-                    // Draw a chat bubble shape
                     ctx.beginPath();
                     ctx.roundRect(-t.size * 0.5, -t.size * 0.4, t.size, t.size * 0.7, 4);
                     ctx.fill();
